@@ -1,10 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="app/static"),name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/health")
 def health_check():
-    return {"status": "OK"}
+    return {"status": "ok"}
+
+@app.get("/")
+def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
