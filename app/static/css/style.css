@@ -26,7 +26,7 @@ body {
     padding: 1rem 2rem;
     background-color: #1a1a1a;
     position: sticky;
-    top:0;
+    top: 0;
     z-index: 100;
 }
 
@@ -36,7 +36,7 @@ body {
     color: var(--color-primary);
 }
 
-.nav-links{
+.nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -145,4 +145,38 @@ body {
     margin-top: 1rem;
     color: var(--color-primary);
     text-decoration: none;
+}
+
+.skills {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    background-color: #1a1a1a;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    color: var(--color-secondary);
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.skill-item:hover {
+    background-color: var(--color-primary);
+    color: white;
 }
