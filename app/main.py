@@ -1,6 +1,11 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Form
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+@app.post("/contact")
+def contact_submit(name: str = Form(...), email: str = Form(...), message: str = Form(...)):
+    print(f"New message from {name} ({email}): {message}")
+    return {"status": "success", "message": "Thank you for reaching out!"}
 
 app = FastAPI()
 
@@ -14,3 +19,10 @@ def health_check():
 @app.get("/")
 def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+from fastapi import Form
+
+@app.post("/contact")
+def contact_submit(name: str = Form(...), email: str = Form(...), message: str = Form(...)):
+    print(f"New message from {name} ({email}): {message}")
+    return {"status": "success", "message": "Thank you for reaching out!"}
